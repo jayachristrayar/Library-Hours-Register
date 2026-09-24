@@ -1,0 +1,1 @@
+import{requireSession}from"@/lib/auth";import{Shell}from"@/components/Shell";import{RecordsWorkspace}from"@/components/RecordsWorkspace";export default async function Records(){const s=await requireSession(["SUPER_ADMIN","LIBRARY_STAFF"]);return <Shell role={s.role} name={s.name}><RecordsWorkspace location={s.location}/></Shell>}

@@ -1,0 +1,2 @@
+import { db } from "@/db"; import { auditLogs } from "@/db/schema"; import type { Session } from "./auth";
+export async function audit(session:Session,action:string,entity:string,entityId:string,description:string, extra?:{oldValue?:unknown;newValue?:unknown;location?:"A_BLOCK"|"B_BLOCK"|"ALL"}){await db.insert(auditLogs).values({userId:session.id,role:session.role,action,entity,entityId,description,oldValue:extra?.oldValue as object,newValue:extra?.newValue as object,location:extra?.location});}
