@@ -1,0 +1,1 @@
+import{requireSession}from"@/lib/auth";import{Shell}from"@/components/Shell";import{CirculationDesk}from"@/components/CirculationDesk";export default async function Circulation(){const s=await requireSession();return <Shell role={s.role} name={s.name}><CirculationDesk location={s.location}/></Shell>}
